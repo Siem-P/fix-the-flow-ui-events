@@ -4,12 +4,18 @@
   --secondary: #050840;
   --highlight-primary: #7ce7c9;
   --highlight-secondary: #9d7beb;
+  --magenta: #b9005f;
+  --yellow: rgb(196, 246, 45);
   --radius: 0.5rem;
   --pill: 2rem;
   --line: 0.1rem;
+  --cubic-bezier: cubic-bezier(0.075, 0.82, 0.165, 1);
+  --iteration-infinite: infinite;
 }
+
 * {
   box-sizing: border-box;
+  color: var(--highlight-primary);
 }
 body {
   margin: 2rem;
@@ -17,6 +23,24 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-size: 2rem;
   background: var(--secondary);
+}
+
+form {
+  position: absolute;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* right: 0; */
+  /* bottom: 0; */
+  max-width: 6em;
+  padding: 0.4em 0.8em;
+  margin: 0.2em;
+  background-color: var(--secondary);
+  border: var(--line) solid var(--highlight-primary);
+  border-radius: var(--pill);
+}
+
+form > label {
+  color: var(--highlight-primary);
 }
 section {
   max-width: 90vw;
@@ -31,11 +55,23 @@ a {
   border-radius: var(--pill);
   font-weight: normal;
   text-decoration: none;
+  transition: .2s ease;
 }
 a:hover {
   color: var(--primary);
   border-color: var(--primary);
+  scale: 0.9;
+  transition: .2s ease;
 }
+
+/* -------------------------------------------- */
+/* Look into this focus styling for the <a> tag */
+/* -------------------------------------------- */
+
+/* a:focus {
+  border: var(--line) solid var(--highlight-secondary);
+} */
+
 
 /* UI Event Classes */
 
@@ -79,3 +115,210 @@ a:nth-of-type(12) {
 }
 
 /* Jouw animaties */
+
+/* ------------------ */
+/* Interface animatie */
+/* ------------------ */
+
+#interface {
+  position: relative;
+  background: var(--secondary);
+  border-color: var(--highlight-primary);
+}
+
+.interface {
+  animation-name: interface;
+  animation-duration: 1s;
+  animation-timing-function: cubic-bezier(0,0,1,1);
+  animation-iteration-count: 1;
+}
+/* Animatie voor interface knop */
+@keyframes interface {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(-1.5rem);
+  }
+  20% {
+    transform: translateY(-3rem);
+  }
+  30% {
+    transform: translateY(-3.5rem);
+  }
+  40% {
+    transform: translateY(-4rem);
+    opacity: 0;
+  }
+  55% {
+    transform: translateY(7rem);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(6rem);
+  }
+  70% {
+    transform: translateY(4.5rem);
+  }
+  80% {
+    transform: translateY(2rem);
+  }
+  90% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* --------------------------------- */
+/* Animatie 2 - mousedown - "Events" */
+/* --------------------------------- */
+
+.events-changecolor {
+  background-color: var(--magenta);
+}
+
+
+/* --------------------------------- */
+/* Animatie 3 - mousedown - "Events" */
+/* --------------------------------- */
+
+
+
+/* --------------------------------- */
+/* Animatie 4 - automatic flow - "Flow" */
+/* --------------------------------- */
+
+#flow {
+  position: relative;
+  background: var(--secondary);
+  border-color: var(--highlight-primary);
+  transform: translateX(-100%);
+}
+
+a:nth-of-type(8) {
+  animation-name: flow;
+  animation-duration: 4.5s;
+  /* animation-timing-function: cubic-bezier(.65,-0.06,.64,1.89); */
+  animation-iteration-count: infinite;
+}
+
+@keyframes flow {
+  0% {
+    transform: translateX(0%);
+  }
+  25% {
+    transform: translateX(100%);
+  }
+  50% {}
+  75% {
+    transform: translatex(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+
+/* --------------------------------- */
+/* Animatie 5 - automatic flow - "Flow" */
+/* --------------------------------- */
+
+
+
+/* --------------------------------- */
+/* Animatie 6 - draggable throw - "sprint-5" */
+/* --------------------------------- */
+
+#sprint-5 {
+  cursor: grab;
+  animation: throw 0.5s linear;
+}
+
+/* Add "draggable" capability to the element */
+#sprint-5[draggable="true"] {
+  cursor: grabbing;
+}
+
+/* Keyframes for the throw animation */
+@keyframes throw {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100px, -100px);
+  }
+}
+
+
+/* --------------------------------- */
+/* Animatie 7 - Rotate section and all <a> elements - "interaction" */
+/* --------------------------------- */
+
+#wireflow {
+  position: relative;
+}
+
+.wireflow {
+  animation-name: wireflow;
+  animation-duration: .5s;
+  /* animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1); */
+  animation-iteration-count: var(--iteration-infinite);
+}
+
+@keyframes wireflow {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* --------------------------------- */
+/* Animatie 8 - Longpress */
+/* --------------------------------- */
+
+#states {
+  position: relative;
+}
+
+.states {
+  animation-name: states;
+  animation-duration: 4s;
+  animation-iteration-count: 1;
+  animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes states {
+  0% {
+    background-color: var(--yellow);
+  }
+  50% {
+    background-color: #b9005f;
+  }
+  100% {
+    background-color: darkcyan;
+    
+    transform: rotateY(360deg);
+  }
+}
+
+/* --------------------------------- */
+/* Animatie 9 Appearing cloud with text - Doubleclick */
+/* --------------------------------- */
+
+#labels {
+  position: relative;
+}
+
+.cloud {
+  transform: translate(-2.5em,-1em);
+  
+  position: absolute;
+  background: HoneyDew;
+  border-radius: var(--radius);
+  padding: 0.8em 0.4em;
+  
+}
