@@ -17,7 +17,7 @@ function jumpHandler() {
 
 let interface = document.getElementById("interface");
 
-interface.addEventListener("mousedown", interfaceHandler);
+interface.addEventListener("click", interfaceHandler);
 interface.addEventListener("animationend", interfaceHandler);
 
 function interfaceHandler() {
