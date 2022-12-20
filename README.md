@@ -5,7 +5,8 @@
 
 ## Beschrijving
 <!-- In de Beschrijving staat hoe je project er uit ziet, hoe het werkt en wat je er mee kan. -->
-Crëeer fantastische UI Events met Javascript
+In deze oefening ga ik aan de slag om te proberen met JavaScript interacties te creëren. Deze oefening biedt erg veel verschillende soorten methode om mee te werken. Ik ga proberen hier 10 verschillende interacties te maken.
+
 <!-- Voeg een link toe naar Github Pages 🌐-->
 Link naar de pagina -> https://siem-ui.student.fdnd.nl
 
