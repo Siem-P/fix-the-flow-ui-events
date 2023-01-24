@@ -1,6 +1,3 @@
-
-
-
 // Animation for "Interaction" <a>
 let interaction = document.querySelector("a:nth-of-type(12)");
 
@@ -11,9 +8,9 @@ function jumpHandler() {
   interaction.classList.toggle("jump");
 }
 
-  // ----------------------------------------------------------------
-  // Animatie 1 - Fade out top, Fade in bottom
-  // ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// Animatie 1 - Fade out top, Fade in bottom
+// ----------------------------------------------------------------
 
 let interface = document.getElementById("interface");
 
@@ -24,10 +21,9 @@ function interfaceHandler() {
   interface.classList.toggle("interface");
 }
 
-
-  // ---------------------------------------------------------------- 
-  // Animatie 2 - Mousedown color change for "Events"
-  // ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// Animatie 2 - Mousedown color change for "Events"
+// ----------------------------------------------------------------
 
 let events = document.getElementById("events");
 
@@ -37,9 +33,9 @@ function eventsHandler() {
   events.classList.toggle("events-changecolor");
 }
 
-  // ----------------------------------------------------------------
-  // Leuke javascript schrijven voor een class randomizer for "And" 
-  // ----------------------------------------------------------------
+// ----------------------------------------------------------------
+// Leuke javascript schrijven voor een class randomizer for "And"
+// ----------------------------------------------------------------
 
 // Create an array of classes to distribute
 let classes = [
@@ -83,7 +79,6 @@ function randomizerFun() {
   }, 5000);
 }
 
-
 // ----------------------------------------------------------------
 // Function for blurring all other <a> elements except the one clicked.
 // ----------------------------------------------------------------
@@ -99,11 +94,11 @@ function blurLinks(event) {
     }
     // If target is selected (focused) or target is clicked, then blur the non targeted elements
     if (links[i] !== event.target || links[i] !== document.activeElement) {
-      links[i].style.filter = "blur(2px)";
+      links[i].classList.add("and-character-blur");
     }
     // Undo the blur on the targeted or focused element
     else {
-      links[i].style.filter = "none";
+      links[i].classList.remove("and-character-blur");
     }
   }
 }
@@ -116,14 +111,13 @@ function blurLinks(event) {
 function resetBlur() {
   var links = document.querySelectorAll("a");
   for (var i = 0; i < links.length; i++) {
-    links[i].style.filter = "none";
+    links[i].classList.remove("and-character-blur");
   }
 }
 
 let aLinks = document.querySelectorAll("a");
 document.addEventListener("focus", blurLinks, true);
 // aLinks.addEventListener("click", blurLinks);
-
 
 // ----------------------------------------------------------------
 // Function for rotating 360 degrees - "wireflow"
@@ -137,7 +131,6 @@ function rotateElement() {
   wireflow.classList.toggle("wireflow");
 }
 
-
 // ----------------------------------------------------------------
 // Function for rotating the Y axis 360 degrees - "states"
 // ----------------------------------------------------------------
@@ -145,16 +138,15 @@ function rotateElement() {
 let states = document.getElementById("states");
 let timeout;
 
-states.addEventListener("mousedown", function() {
-
+states.addEventListener("mousedown", function () {
   // Set a timer for clicking the button for 2 seconds
   timeout = setTimeout(() => {
     longpressHandler();
-  }, 2000)
-})
+  }, 2000);
+});
 
 // Reset time on letting mouseclick go
-states.addEventListener("mouseup", function() {
+states.addEventListener("mouseup", function () {
   clearTimeout(timeout);
 });
 
@@ -162,49 +154,67 @@ states.addEventListener("mouseup", function() {
 states.addEventListener("animationend", longpressHandler);
 
 // Toggle the class
-function longpressHandler(){
+function longpressHandler() {
   states.classList.toggle("states");
 }
-
-
 
 // ----------------------------------------------------------------
 // Doubleclick events - "states"
 // ----------------------------------------------------------------
 
-
 let labels = document.getElementById("labels");
 
 const cloud = document.createElement("div");
-cloud.classList.add('cloud')
-
+cloud.classList.add("cloud");
 
 cloud.innerHTML = "Hey! Hoe gaat het?";
 
 let cloudVisible = false;
 
 labels.addEventListener("dblclick", () => {
-
-  if(cloudVisible) {
+  if (cloudVisible) {
     cloud.parentNode.removeChild(cloud);
     cloudVisible = false;
-  }
-  else {
+  } else {
     document.body.appendChild(cloud);
-    cloud.style.left = labels.offsetLeft + 'px';
-    cloud.style.top = labels.offsetTop - cloud.offsetHeight + 'px';
+    cloud.style.left = labels.offsetLeft + "px";
+    cloud.style.top = labels.offsetTop - cloud.offsetHeight + "px";
 
     cloudVisible = true;
   }
-})
-  
+});
 
+
+// ----------------------------------------------------------------
+// Keydown event - "Code"
+// ----------------------------------------------------------------
+
+let keydown = document.getElementById('code');
+keydown.addEventListener('keydown', keydownHandler)
+keydown.addEventListener('animationend', keydownHandler)
+
+function keydownHandler() {
+    keydown.classList.toggle('keydown')
+}
+
+
+
+// ----------------------------------------------------------------
+// Keyup event - "Feedforward"
+// ----------------------------------------------------------------
+
+let keyup = document.getElementById('feedforward');
+keyup.addEventListener('keyup', keyupHandler)
+keyup.addEventListener('animationend', keyupHandler)
+
+function keyupHandler() {
+    keyup.classList.toggle('keyup')
+}
 
 
 // ----------------------------------------------------------------
 // Function for unlocking the button page
 // ----------------------------------------------------------------
-
 
 // let keyCode = document.querySelector('#keycode');
 // let button = document.querySelector('form > button');
@@ -212,7 +222,6 @@ labels.addEventListener("dblclick", () => {
 
 // console.log(form);
 // form.addEventListener('submit', unlockPage)
-
 
 // function unlockPage(ev) {
 

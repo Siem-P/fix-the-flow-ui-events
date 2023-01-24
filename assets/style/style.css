@@ -20,7 +20,7 @@
 body {
   margin: 2rem;
   padding: 0;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-size: 2rem;
   background: var(--secondary);
 }
@@ -55,13 +55,13 @@ a {
   border-radius: var(--pill);
   font-weight: normal;
   text-decoration: none;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 a:hover {
   color: var(--primary);
   border-color: var(--primary);
   scale: 0.9;
-  transition: .2s ease;
+  transition: 0.2s ease;
 }
 
 /* -------------------------------------------- */
@@ -71,7 +71,6 @@ a:hover {
 /* a:focus {
   border: var(--line) solid var(--highlight-secondary);
 } */
-
 
 /* UI Event Classes */
 
@@ -129,7 +128,7 @@ a:nth-of-type(12) {
 .interface {
   animation-name: interface;
   animation-duration: 1s;
-  animation-timing-function: cubic-bezier(0,0,1,1);
+  animation-timing-function: cubic-bezier(0, 0, 1, 1);
   animation-iteration-count: 1;
 }
 /* Animatie voor interface knop */
@@ -181,12 +180,13 @@ a:nth-of-type(12) {
   background-color: var(--magenta);
 }
 
-
 /* --------------------------------- */
-/* Animatie 3 - mousedown - "Events" */
+/* Animatie 3 - click & blur effect */
 /* --------------------------------- */
 
-
+.and-character-blur {
+  filter: blur(2px);
+}
 
 /* --------------------------------- */
 /* Animatie 4 - automatic flow - "Flow" */
@@ -213,7 +213,8 @@ a:nth-of-type(8) {
   25% {
     transform: translateX(100%);
   }
-  50% {}
+  50% {
+  }
   75% {
     transform: translatex(-100%);
   }
@@ -222,12 +223,9 @@ a:nth-of-type(8) {
   }
 }
 
-
 /* --------------------------------- */
 /* Animatie 5 - automatic flow - "Flow" */
 /* --------------------------------- */
-
-
 
 /* --------------------------------- */
 /* Animatie 6 - draggable throw - "sprint-5" */
@@ -253,7 +251,6 @@ a:nth-of-type(8) {
   }
 }
 
-
 /* --------------------------------- */
 /* Animatie 7 - Rotate section and all <a> elements - "interaction" */
 /* --------------------------------- */
@@ -264,7 +261,7 @@ a:nth-of-type(8) {
 
 .wireflow {
   animation-name: wireflow;
-  animation-duration: .5s;
+  animation-duration: 0.5s;
   /* animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1); */
   animation-iteration-count: var(--iteration-infinite);
 }
@@ -274,7 +271,6 @@ a:nth-of-type(8) {
     transform: rotate(360deg);
   }
 }
-
 
 /* --------------------------------- */
 /* Animatie 8 - Longpress */
@@ -300,7 +296,7 @@ a:nth-of-type(8) {
   }
   100% {
     background-color: darkcyan;
-    
+
     transform: rotateY(360deg);
   }
 }
@@ -314,11 +310,60 @@ a:nth-of-type(8) {
 }
 
 .cloud {
-  transform: translate(-2.5em,-1em);
-  
+  transform: translate(-2.5em, -1em);
   position: absolute;
   background: HoneyDew;
   border-radius: var(--radius);
   padding: 0.8em 0.4em;
-  
+}
+
+
+/* Keydown */
+.keydown {
+  animation-name: keydown;
+  animation-duration: 1.2s;
+  animation-iteration-count: var(--iterations);
+  animation-timing-function: cubic-bezier(.48,.48,.72,.72)
+}
+
+@keyframes keydown {
+  0%{
+    transform: translateY(0);
+  }
+  25%{
+    transform: translateY(6rem);
+    color: green;
+    border-color: green;
+  }
+  50%{
+    transform: rotate(360deg);
+  }
+  75%{
+    transform: translateY(-6rem);
+  }
+  100%{
+    transform: translateY(0);
+  }
+}
+
+/* Keyup */
+.keyup {
+  animation-name: keyup;
+  animation-duration: 1.2s;
+  animation-iteration-count: var(--iterations);
+  animation-timing-function: cubic-bezier(.48,.48,.72,.72)
+}
+
+@keyframes keyup {
+  0%{
+    transform: translateX(0);
+  }
+  50%{
+    transform: translateX(-24rem);
+    color: salmon;
+    border-color: salmon;
+  }
+  100%{
+    transform: translateX(0);
+  }
 }
